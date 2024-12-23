@@ -6,7 +6,7 @@
  * libjpeg-turbo Modifications:
  * Copyright (C) 1999-2006, MIYASAKA Masaru.
  * Copyright 2009 Pierre Ossman <ossman@cendio.se> for Cendio AB
- * Copyright (C) 2011, 2014-2015, 2022, D. R. Commander.
+ * Copyright (C) 2011, 2014-2015, 2022, 2024, D. R. Commander.
  * Copyright (C) 2014, Mozilla Corporation.
  * For conditions of distribution and use, see the accompanying README.ijg
  * file.
@@ -122,8 +122,8 @@ flss(UINT16 val)
  * Compute values to do a division using reciprocal.
  *
  * This implementation is based on an algorithm described in
- *   "How to optimize for the Pentium family of microprocessors"
- *   (http://www.agner.org/assem/).
+ *   "Optimizing subroutines in assembly language:
+ *   An optimization guide for x86 platforms" (https://agner.org/optimize).
  * More information about the basic algorithm can be found in
  * the paper "Integer Division Using Reciprocals" by Robert Alverson.
  *
@@ -901,8 +901,6 @@ forward_DCT_float(j_compress_ptr cinfo, jpeg_component_info *compptr,
 }
 
 #endif /* DCT_FLOAT_SUPPORTED */
-
-#include "jpeg_nbits_table.h"
 
 static const float jpeg_lambda_weights_flat[64] = {
   1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
